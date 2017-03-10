@@ -1,0 +1,104 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-offset-2 col-xs-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading"> Already Placed Bets </div>
+                <div class="panel-body">
+                    <p> Bet and Win !! </p>
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th> Bet Type </th>
+                        <th> Horse No. </th>
+                        <th> Amount </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr data-ng-repeat="bet in betList | orderBy: 'betType'">
+                        <th scope=row>{{bet.betType}}</th>
+                        <td>{{bet.horseNo}}</td>
+                        <td>{{bet.amount}}</td>
+
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-offset-3 col-xs-2">
+                            <div class="form-group">
+                                <label for="inputBetType">Type</label>
+                                <input type="text" class="form-control" id="inputBetType" data-ng-maxlength=1 data-ng-model="betObject.betType">
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="form-group">
+                                <label for="inputBetHorse">Horse</label>
+                                <input type="text" class="form-control" id="inputBetHorse" data-ng-model="betObject.horseNo">
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="form-group">
+                                <label for="inputBetAmount">Amount</label>
+                                <input type="text" class="form-control" id="inputBetAmount" data-ng-model="betObject.amount">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-offset-5 col-xs-12">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary btn-lg" data-ng-click="placeBet()">Place Bet</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-offset-2 col-xs-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading"> Submit Results </div>
+                <div class="panel-body">
+                    <p> Enter the winning horse details to finalize bets </p>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-xs-offset-3 col-xs-2">
+                            <div class="form-group">
+                                <label for="inputWinHorse">Place 1</label>
+                                <input type="text" class="form-control" id="inputWinHorse" data-ng-model="betResult.first">
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="form-group">
+                                <label for="inputRunnerUpHorse">Place 2</label>
+                                <input type="text" class="form-control" id="inputRunnerUpHorse" data-ng-model="betResult.second">
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="form-group">
+                                <label for="inputSecondRunnerUpHorse">Place 3</label>
+                                <input type="text" class="form-control" id="inputSecondRunnerUpHorse" data-ng-model="betResult.third">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-offset-5 col-xs-12">
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary btn-lg"
+                                        data-ng-disabled="(betResult.first =='') || (betResult.second =='') || (betResult.third =='') || betList.length==0"
+                                        data-ng-click="submitResults()"> Finalize </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

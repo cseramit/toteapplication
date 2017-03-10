@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-offset-2 col-xs-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading"> WIN </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th> Horse No. </th>
+                        <th> Dividend </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope=row>{{winResult.horseNo}}</th>
+                        <td>{{winResult.dividendAmount}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-offset-2 col-xs-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading"> PLACE </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th> Horse No. </th>
+                        <th> Dividend </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr data-ng-repeat="place in placeResultMap">
+                        <th scope=row>{{place.horseNo}}</th>
+                        <td ng-if="place.dividendAmount == 'Not Applicable'">{{place.dividendAmount}}</td>
+                        <td ng-if="place.dividendAmount != 'Not Applicable'">$ {{place.dividendAmount}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+{
+  "name": "tote-application",
+  "version": "1.0.0",
+  "description": "Simplified version of tote betting application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Tote",
+    "Betting",
+    "Demo",
+    "App",
+    "Coding",
+    "Task"
+  ],
+  "author": "Amit Bhandari",
+  "license": "ISC",
+  "devDependencies": {
+    "express": "^4.15.2"
+  }
+}
