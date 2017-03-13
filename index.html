@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="shorcut icon" href="/assets/icons/icon.ico" />
+
     <!-- Include Bootstrap -->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -25,6 +27,7 @@
     <script src="/assets/controllers/ResultsController.js"></script>
     <script src="/assets/services/BetDataService.js"></script>
     <script src="/assets/filters/filter.js"></script>
+    <script src="/assets/directives/validationDirectives.js"></script>
 </head>
 
 
@@ -33,9 +36,6 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <button class="navbar-toggle" data-toggle="collapse" data-target="#navMenu">
-                <span class="glyphicon glyphicon-menu-hamburger"></span>
-            </button>
             <a class="navbar-brand" href="#/">
                 Tote Home
             </a>
@@ -53,6 +53,9 @@
             Tote betting involves punters choosing the outcome of a race by placing bets into a pool of money. Punters who successfully predict the outcome of a race take a share of the pool proportional to their stake.
             For example, a punter who places a $2 bet on a winning selection would receive twice the winnings of a punter who placed a $1 stake.
         </p>
+        <span>
+            Assumption - For game to commence, there should be at least 4 horses. i.e. 1 more than number of winners to be declared which in this case is 3.
+        </span>
     </div>
 </div>
 
