@@ -2,10 +2,12 @@ const express = require("express");
 const server = express();
 
 server.listen('3000');
+server.use('/assets/icons/', express.static(__dirname + '/public/icons/'));
 server.use('/assets/scripts/', express.static(__dirname + '/public/scripts/'));
 server.use('/assets/controllers/', express.static(__dirname + '/public/scripts/controllers/'));
 server.use('/assets/services/', express.static(__dirname + '/public/scripts/services/'));
 server.use('/assets/filters/', express.static(__dirname + '/public/scripts/filters/'));
+server.use('/assets/directives/', express.static(__dirname + '/public/scripts/directives/'));
 server.use('/assets/templates/', express.static(__dirname + '/public/templates/'));
 
 
