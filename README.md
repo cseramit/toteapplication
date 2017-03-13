@@ -10,3 +10,10 @@ Place Bet - Button to Place the bet. Will be enabled only once 1,2 and 3 are com
 
 Results - All three fields are mandatory and accept 2 digit numbers.
 Finalize Bet - Will be enabled only when there is atleast one bet and Results are input.
+
+
+How to install and run
+1. Clone the repository from master branch.
+2. In the current directory, run 'npm install'
+3. Execute 'node app'. This will initiate the server which is listening on 3000 port on localhost.
+4. Access the application at http://localhost:3000/#/ via browser.
