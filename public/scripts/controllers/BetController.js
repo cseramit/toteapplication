@@ -3,7 +3,7 @@ punterApp.controller('BetController', ['$scope', '$location', '$filter', 'BetDat
     $scope.betObject = {
         "betType": "",
         "horseNo": "",
-        "amount": ""
+        "amount": 0
     };
 
     $scope.betResult = {
@@ -18,7 +18,7 @@ punterApp.controller('BetController', ['$scope', '$location', '$filter', 'BetDat
     $scope.clearBet = function(betObject) {
         betObject.betType = "";
         betObject.horseNo = "";
-        betObject.amount = "";
+        betObject.amount = 0;
     };
 
     $scope.placeBet = function() {
@@ -38,5 +38,24 @@ punterApp.controller('BetController', ['$scope', '$location', '$filter', 'BetDat
         $location.path("/results");
     };
 
+
+
+    $scope.validateBet = function(){
+        if(angular.isDefined($scope.betObject.horseNo) && angular.isDefined($scope.betObject.betType) ) {
+            if($scope.betObject.horseNo != '' && $scope.betObject.betType != '') {
+                return true;
+            }
+        }
+        return false;
+    };
+
+    $scope.validateResults = function() {
+        if(angular.isDefined($scope.betResult.first) && angular.isDefined($scope.betResult.second) && angular.isDefined($scope.betResult.third) ) {
+            if($scope.betResult.first != '' && $scope.betResult.second != '' && $scope.betResult.third != '') {
+                return true;
+            }
+        }
+        return false;
+    };
 
 }]);
