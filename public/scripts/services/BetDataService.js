@@ -44,11 +44,17 @@ punterApp.service('BetDataService', ['$filter', function($filter){
 
         /*Calculate Dividend after 15% commission*/
         winObject.horseNo = winner;
-        winObject.dividendAmount = parseFloat((0.85 * parseFloat(totalBetAmount))/parseFloat(totalWinAmount)).toFixed(2);
 
-        /* Handle the case where you dont have bet for one of the winning horses */
-        if(isNaN(winObject.dividendAmount)) {
+
+        if(winObject.totalWinAmount <= 0 ) {
             winObject.dividendAmount = 'Not Applicable';
+        }else {
+            winObject.dividendAmount = parseFloat((0.85 * parseFloat(totalBetAmount)) / parseFloat(totalWinAmount)).toFixed(2);
+
+            /* Handle the case where you dont have bet for one of the winning horses */
+            if (isNaN(winObject.dividendAmount)) {
+                winObject.dividendAmount = 'Not Applicable';
+            }
         }
 
         return winObject;
@@ -65,7 +71,6 @@ punterApp.service('BetDataService', ['$filter', function($filter){
         var placeList = $filter('betListFilter')(betList, 'P');
 
         var totalWinBets = Object.keys(resultObject).length;
-
 
         /*Step 2. Create a Map with total Bet Amount against each of the winning horse from the WIN list*/
         angular.forEach(placeList, function(value, key){
