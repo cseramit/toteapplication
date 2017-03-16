@@ -1,0 +1,27 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-offset-2 col-xs-8">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    {{panelTitle}}
+                </div>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th> Horse No. </th>
+                        <th> Dividend </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr data-ng-repeat="resultRow in resultList">
+                        <th scope=row>{{resultRow.horseNo}}</th>
+                        <td ng-if="place.dividendAmount == 'Not Applicable'">{{resultRow.dividendAmount}}</td>
+                        <td ng-if="place.dividendAmount != 'Not Applicable'">$ {{resultRow.dividendAmount}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ng-transclude></ng-transclude>
+            </div>
+        </div>
+    </div>
+</div>
