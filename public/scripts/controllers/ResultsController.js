@@ -3,8 +3,20 @@ punterApp.controller('ResultsController', ['$scope', '$location', '$filter', 'Be
     /*If someone refreshes on result page, need to be redirected to home */
     if(BetDataService.getBetList().length == 0 ){
         $location.path('/');
+    }else {
+        BetDataService.getWinDividendFromBackend().then(function(data){
+            $scope.winResultMap = data.winObject;
+        }, function(data) {
+            /* Error Handling */
+            $scope.winResultMap = [];
+        });
+
+        //$scope.placeResultMap = BetDataService.getPlaceDividend();
+        BetDataService.getPlaceDividendFromBackend().then(function(data){
+            $scope.placeResultMap = data.placeObject;
+        },function(data){
+            $scope.placeResultMap = [];
+        });
     }
-    $scope.winResult = BetDataService.getWinDividend();
-    $scope.placeResultMap = BetDataService.getPlaceDividend();
 
 }]);
