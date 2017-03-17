@@ -23,40 +23,43 @@
                     </tr>
                     </tbody>
                 </table>
-                <div class="panel-footer">
-                    <div class="row">
-                        <div class="col-md-offset-3 col-md-2">
-                            <div class="form-group">
-                                <label for="inputBetType">Type</label>
-                                <input type="tel" class="form-control" tote-number letters="true" id="inputBetType" data-ng-model="betObject.betType">
+
+                <!--<form name="toteForm">-->
+                    <div class="panel-footer">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-2">
+                                <div class="form-group">
+                                    <label for="inputBetType">Type</label>
+                                    <input type="tel" id="inputBetType" name="inputBetType" required class="form-control" data-ng-model="betObject.betType" tote-number letters="true">
+                                </div>
+                                <div ng-if="toteForm.inputBetType.pristine"> Please enter a valid Bet Type - P or W </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="inputBetHorse">Horse</label>
+                                    <input type="tel" id="inputBetHorse" name="inputBetHorse" class="form-control"  data-ng-model="betObject.horseNo" tote-number max2chracterswithoutdecimal="true">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label for="inputBetAmount">Amount</label>
+                                    <input type="tel" id="inputBetAmount" name="inputBetAmount" class="form-control" data-ng-model="betObject.amount" tote-number defaulttozero="true"  precision="2"  max8chracters="true">
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label for="inputBetHorse">Horse</label>
-                                <input type="tel" class="form-control" id="inputBetHorse"  tote-number max2chracterswithoutdecimal="true" data-ng-model="betObject.horseNo">
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div class="form-group">
-                                <label for="inputBetAmount">Amount</label>
-                                <input type="tel" class="form-control" id="inputBetAmount" defaulttozero="true" precision="2"  max8chracters="true" tote-number data-ng-model="betObject.amount">
+                        <div class="row">
+                            <div class="col-md-offset-5 col-xs-12">
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-primary btn-lg" data-ng-disabled="!validateBet()" data-ng-click="placeBet()">Place Bet</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-offset-5 col-xs-12">
-                            <div class="form-group">
-                                <button type="button" class="btn btn-primary btn-lg" data-ng-disabled="!validateBet()" data-ng-click="placeBet()">Place Bet</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!--</form>-->
             </div>
         </div>
     </div>
 </div>
-
 
 
 <div class="container-fluid">
