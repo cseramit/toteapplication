@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const jsonParser = bodyParser.json();
 const server = express();
-var dividendCalculator = require("./server_scripts/calculator/DividendCalculator");
+var dividendCalculator = require("./server_scripts/calculator/dividendCalculator");
 server.listen('3000');
 
 //Middleware setup
