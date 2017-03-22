@@ -11,7 +11,6 @@ punterApp.controller('ResultsController', ['$scope', '$location', '$filter', 'Be
             $scope.winResultMap = [];
         });
 
-        //$scope.placeResultMap = BetDataService.getPlaceDividend();
         BetDataService.getPlaceDividendFromBackend().then(function(data){
             $scope.placeResultMap = data.placeObject;
         },function(data){
