@@ -15,17 +15,17 @@ punterApp.controller('BetController', ['$scope', '$location', '$filter', 'BetDat
     /* Preserve the list on home page. Optional*/
     $scope.betList = [];
 
-    $scope.clearBet = function(betObject) {
-        betObject.betType = "";
-        betObject.horseNo = "";
-        betObject.amount = 0;
+    $scope.clearBet = function() {
+        $scope.betObject.betType = "";
+        $scope.betObject.horseNo = "";
+        $scope.betObject.amount = 0;
     };
 
     $scope.placeBet = function() {
         $scope.betObject.betType = $filter('uppercase')($scope.betObject.betType);
         $scope.betList.push(angular.copy($scope.betObject));
         BetDataService.addToBetList(angular.copy($scope.betObject));
-        $scope.clearBet($scope.betObject);
+        $scope.clearBet();
     };
 
 
@@ -38,7 +38,7 @@ punterApp.controller('BetController', ['$scope', '$location', '$filter', 'BetDat
 
 
     $scope.validateBet = function(){
-        if(GenericService.validateString($scope.betObject.horseNo) && GenericService.validateString($scope.betObject.betType) ) {
+        if(GenericService.validateString($scope.betObject.horseNo) && GenericService.validateString($scope.betObject.betType) && $scope.betObject.amount>0) {
             return true;
         }
         return false;
