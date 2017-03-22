@@ -15,8 +15,8 @@
                     <tbody>
                     <tr data-ng-repeat="resultRow in resultList">
                         <th scope=row>{{resultRow.horseNo}}</th>
-                        <td ng-if="place.dividendAmount == 'Not Applicable'">{{resultRow.dividendAmount}}</td>
-                        <td ng-if="place.dividendAmount != 'Not Applicable'">$ {{resultRow.dividendAmount}}</td>
+                        <td ng-if="resultRow.dividendAmount !== 0">$ {{resultRow.dividendAmount}}</td>
+                        <td ng-if="resultRow.dividendAmount === 0">Not Applicable</td>
                     </tr>
                     </tbody>
                 </table>
